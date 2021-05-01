@@ -1,0 +1,26 @@
+#cloud-config
+autoinstall:
+  version: 1
+  keyboard:
+    layout: en
+    variant: us
+  locale: en_US
+  packages:
+    - python
+    - python-apt
+    - qemu-guest-agent
+  package_update: true
+  package_upgrade: true
+  ssh:
+    install-server: yes
+    allow-pw: yes
+  storage:
+    layout:
+      name: lvm
+  user-data:
+    users:
+      - name: ubuntu
+        # password: ubuntu
+        passwd: "$6$WfzFq8mpu.gIOIN4$EyVwSTj1ubsNRpP1yAgWFYXbMEK7MrVAoY2s2Pf0fGbs9eBwPZlvGVd8zZZCtZgvmIL53jxaiuRvF8bMfJ64z/"
+        lock_passwd: false
+        sudo: ALL=(ALL) NOPASSWD:ALL
