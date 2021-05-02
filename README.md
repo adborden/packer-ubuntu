@@ -5,6 +5,9 @@ Example building custom Ubuntu images with packer.
 
 ## Usage
 
+    $ make build
+
+
 ## Development
 
 ### Prerequisites

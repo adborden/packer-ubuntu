@@ -1,0 +1,22 @@
+---
+name: commit
+
+on:
+  push:
+
+jobs:
+  test:
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: packer fmt
+        run: packer fmt -check -recursive .
+      - name: packer validate
+        run: make validate
+      - name: setup qemu
+        uses: docker/setup-qemu-action@v1
+        with:
+          platforms: amd64
+      - name: packer build
+        run: make build
